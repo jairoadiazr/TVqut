@@ -9,8 +9,10 @@ Identifying areas in a landscape where individuals have a higher probability of 
 3. Add repo to MATLAB path.
 4. Main function is `tvQUT` which estimates propensity based on design matrix $X$, response $Y$ and total variation matrix $D$. It internally calculates regularization parameter using function `lambdaQUT`.
 5. All desing matrices $X$, responses $Y$ and matrices $D$ used to estimate EHDV propensities are available in folder `data`.
-6. To replicate paper results on deer data, run `deer/deermoves.m`.
-7. To replicate all simulations run `simulations/simulate_main.m` and `simulations/simulate_main_text.m`.
-8. To replicate simulation plots use `simulations/plot_effect_n.m`, `simulations/plot_effect_nx.m` and `simulations/plot_effect_tn.m` after step 7.
+6. To replicate paper results on deer data, run `deer/deermoves_bootstrap_plus.m`.
+7. To replicate all single simulations run `simulations/simulate_main.m`.
+8. To replicate simulations with uncertainty quantification run `simulations/simulate_main_bootstrap_parallel.m`.
+9. To replicate simulation tables and plots use `simulations/results_single.m` `simulations/results_coverage.m` after step 8.
+10. To replicate splines results, run R files in folder `splines`
 
 
