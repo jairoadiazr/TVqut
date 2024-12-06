@@ -6,7 +6,8 @@
 
 flag = 0;
 
-for type = 1:3
+%for type = 1:3
+for type = [1]
 
     
     if type == 1
@@ -16,8 +17,6 @@ for type = 1:3
     elseif type ==3
         strtype = 'sides'
     end
-    
-    
     
     filename = strcat('test_',strtype,'_bird_moves_main.mat')
     if isfile(filename)
@@ -35,12 +34,8 @@ for type = 1:3
     X_original = X;
 
     for iter = 1:1000
-
-        %for snr = 0:0.125:0.625
-        %for snr = 0.750:0.125:1
         
-        %for snr = [0,1]
-        for snr = 0
+        for snr = [0,1]
         
             propvec_original = reshape(snr*prop_original/100, nx_original*ny_original, 1);
             mu=X_original * propvec_original;
@@ -48,8 +43,9 @@ for type = 1:3
             y_original=binornd(1,p_original);
             propvec_original = reshape(propvec_original,nx_original,ny_original);
             
-            NXs = [10,30,50];
-            Ns = 50:25:400;
+            %NXs = [10,30,50];
+            NXs = [10];
+            Ns = 50:50:400;
             
             for nx_new = NXs
                 ny_new = nx_new;

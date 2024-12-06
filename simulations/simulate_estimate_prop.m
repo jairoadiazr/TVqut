@@ -102,5 +102,7 @@ end
 
 
 propnaive = reshape(sum(X(y==1,:))./sum(X),nx,ny);
+propsmooth = gpr_krigging(propnaive);
+
 filename = strcat('sim_',strtype,'_bird_moves_n',num2str(n),'_snr',num2str(snr),'_nx',num2str(nx),'_ny',num2str(ny),'_tn',num2str(tn_new),'iter',num2str(iter),'.mat')
-save(filename,'prophat','propnaive','Lambdas','lambda_max','lambda_qut','X','D_TV','n','nx','ny','y','propvec','tn','-v7.3')
+save(filename,'prophat','propnaive','propsmooth','Lambdas','lambda_max','lambda_qut','X','D_TV','n','nx','ny','y','propvec','tn','-v7.3')

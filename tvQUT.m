@@ -1,4 +1,4 @@
-function sol = tvQUT(X,y,D_TV,MC,options)
+function [sol, lambda_qut, lambda_max] = tvQUT(X,y,D_TV,MC,options)
 
     %%%%CALCULATE LAMBDA QUT
     [lambda_qut, lambda_max] = lambdaQUT(X, y, D_TV, MC);

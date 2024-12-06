@@ -30,6 +30,7 @@ for inx = 1:length(NXs)
 
             filename = strcat('test_sim_',strtype,'_bird_moves_n',num2str(n),'_snr',num2str(snr),'_nx',num2str(nx),'_ny',num2str(ny),'_tn',num2str(tn),'iter',num2str(iter),'.mat');
             load(filename)
+            filename
             [lambda_qut, lambda_max];
             test(iter) = lambda_qut<lambda_max;  
             test_lasso(iter) = lambda_lasso_qut<lambda_lasso_max;  
@@ -66,9 +67,8 @@ for inx = 1:length(NXs)
         test_llratio_exact = zeros(1,niter);
 
         for iter = 1:niter
-            filename = strcat('test_sim_',strtype,'_bird_moves_n',num2str(n),'_snr',num2str(snr),'_nx',num2str(nx),'_ny',num2str(ny),'_tn',num2str(tn),'iter',num2str(iter),'.mat');
+            filename = strcat('test_sim_',strtype,'_bird_moves_n',num2str(n),'_snr',num2str(snr),'_nx',num2str(nx),'_ny',num2str(ny),'_tn',num2str(tn),'iter',num2str(iter),'.mat')
             load(filename)
-            [lambda_qut, lambda_max];
             test(iter) = lambda_qut<lambda_max;    
             test_lasso(iter) = lambda_lasso_qut<lambda_lasso_max; 
 
@@ -95,6 +95,7 @@ plot(Ns,P0)
 yline(0.05, '--')
 xlabel('n')
 title('level')
+xlim([50,400])
 
 legend('TV-test', 'LASSO-test', 'likelihood ratio test', 'exact likelihood ratio test','location','west')
 
@@ -102,12 +103,12 @@ subplot(1,2,2)
 plot(Ns,P)
 xlabel('n')
 title('power')
-
+xlim([50,400])
 
 
 set(h,'Units','Inches');
 pos = get(h,'Position');
-set(h,'position',[pos(1)*0.5,pos(2),pos(3)*1.8,pos(4)*1.0])
+set(h,'position',[pos(1)*1,pos(2)*1,pos(3)*0.8,pos(4)*0.8])
 pos = get(h,'Position');
 set(h, 'PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
 set(h,'PaperPositionMode','Auto')
